@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Table Close</title>
+</head>
+<body>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Busy Day Schedule</title>
+  <style>
+    /* Table itself */
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      font-family: Arial, sans-serif;
+    }
+
+    /* Table headers */
+    th {
+      background-color: #004080;
+      color: white;
+      padding: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 2px solid #003366;
+    }
+
+    /* All table cells */
+    td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Hover effect for cells */
+    td:hover {
+      background-color: #d6eaf8;
+    }
+
+    /* Style one specific row */
+    tr.highlight-row {
+      background-color: #ffe680;
+      font-weight: bold;
+    }
+
+    /* Style one specific column (time column) */
+    td.time-col {
+      background-color: #f2f2f2;
+      font-style: italic;
+      color: #333;
+    }
+
+    /* Style images inside cells */
+    td img {
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* ID selector for a special event */
+    #important {
+      background-color: #ffcccc;
+      color: #800000;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">My Busy Day Schedule</h1>
+  <table>
+    <tr>
+      <th>Time</th>
+      <th>Event</th>
+    </tr>
+    <tr>
+      <td class="time-col">07:00</td>
+      <td><img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Breakfast">Breakfast</td>
+    </tr>
+    <tr>
+      <td class="time-col">08:00</td>
+      <td><img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" alt="Commute">Commute to Work</td>
+    </tr>
+    <tr class="highlight-row">
+      <td class="time-col">09:00</td>
+      <td><img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" alt="Meeting">Team Meeting</td>
+    </tr>
+    <tr>
+      <td class="time-col">11:00</td>
+      <td><img src="https://cdn-icons-png.flaticon.com/512/3039/3039385.png" alt="Coding">Coding Session</td>
+    </tr>
+    <tr>
+      <td class="time-col">13:00</td>
+      <td><img src="https://cdn-icons-png.flaticon.com/512/1046/1046786.png" alt="Lunch">Lunch</td>
+    </tr>
+    <tr>
+      <td class="time-col">15:00</td>
+      <td id="important"><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Presentation">Project Presentation</td>
+    </tr>
+    <tr>
+      <td class="time-col">17:00</td>
+      <td><img src="https://cdn-icons-png.flaticon.com/512/1046/1046787.png" alt="Coffee">Coffee Break</td>
+    </tr>
+    <tr>
+      <td class="time-col">18:30</td>
+      <td><img src="https://cdn-icons-png.flaticon.com/512/1046/1046788.png" alt="Gym">Gym Workout</td>
+    </tr>
+    <tr>
+      <td class="time-col">20:00</td>
+      <td><img src="https://cdn-icons-png.flaticon.com/512/1046/1046789.png" alt="Dinner">Dinner</td>
+    </tr>
+    <tr>
+      <td class="time-col">22:00</td>
+      <td><img src="https://cdn-icons-png.flaticon.com/512/1046/1046790.png" alt="Reading">Reading and Relaxation</td>
+    </tr>
+  </table>
+</body>
+</html>
