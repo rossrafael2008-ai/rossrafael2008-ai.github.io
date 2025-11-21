@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox and Grid Puzzle Assignment</title>
+  <style>
+    /* === CSS GRID PAGE LAYOUT === */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 1fr;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f0f8ff, #e6e6fa);
+    }
+
+    header, main, footer {
+      padding: 20px;
+      border: 2px solid #333;
+    }
+
+    header {
+      grid-row: 1;
+      text-align: center;
+      background-color: #d8bfd8;
+    }
+
+    main {
+      grid-row: 2;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+    }
+
+    footer {
+      grid-row: 3;
+      text-align: center;
+      background-color: #dda0dd;
+    }
+
+    /* === FLEXBOX PUZZLE CONTAINER === */
+    .puzzle-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      border: 3px dashed #444;
+      padding: 10px;
+      background-color: #fafafa;
+    }
+
+    .piece {
+      flex: 0 0 calc(25% - 10px); /* 4 pieces per row */
+      height: 100px;
+      background-color: #ccc;
+      border: 1px solid #999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Hide the faulty piece */
+    .piece.faulty {
+      display: none;
+    }
+
+    /* Styling for creative design */
+    h1, h2 {
+      margin: 0;
+      color: #4b0082;
+    }
+    .info {
+      background: #f5f5dc;
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Section 1: Name & Puzzle Choice -->
+  <header>
+    <h1>Student: Jane Doe</h1>
+    <h2>Puzzle Chosen: Butterflies 🦋</h2>
+  </header>
+
+  <!-- Section 2: Puzzle & Flex Properties -->
+  <main>
+    <div class="info">
+      <h3>Flex Container Properties Used:</h3>
+      <ul>
+        <li><code>display: flex;</code></li>
+        <li><code>flex-wrap: wrap;</code></li>
+        <li><code>justify-content: center;</code></li>
+        <li><code>align-items: center;</code></li>
+        <li><code>gap: 5px;</code></li>
+      </ul>
+      <p>The faulty piece is included but hidden using <code>display: none;</code>.</p>
+    </div>
+
+    <!-- Puzzle Flexbox -->
+    <div class="puzzle-container">
+      <!-- Replace text with <img src="images/piece1.png"> etc. -->
+      <div class="piece">Piece 1</div>
+      <div class="piece">Piece 2</div>
+      <div class="piece">Piece 3</div>
+      <div class="piece">Piece 4</div>
+      <div class="piece">Piece 5</div>
+      <div class="piece">Piece 6</div>
+      <div class="piece">Piece 7</div>
+	  <div class="piece">Piece 8</div>
+	  <div class="piece">Piece 9</div>
+	  <div class="piece">Piece 10</div>
+	  <div class="piece">Piece 11</div>
+	  <div class="piece">Piece 12</div>
+	  <div class="piece">Piece 13</div>
+      <div class="piece faulty">Faulty Piece</div>
+    </div>
+  </main>
+	<!-- Puzzle Flexbox -->
+    <div class="puzzle-container">
+      <!-- Replace text with <img src="images/piece1.png"> etc. -->
+      <img src="images/puzzle2_A.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_B.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_C.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_D.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_E.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_F.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_G.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_H.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_I.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_J.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_K.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_L.jpg" width="150" height="133" alt=""/>
+      <img src="images/puzzle2_M.jpg" width="150" height="133" alt=""/>
+<div class="piece faulty">Faulty Piece</div>
+</div>
+  </main>
+
+<!-- Section 3: Date -->
+  <footer>
+    <p>Assignment Completed: November 20, 2025</p>
+  </footer>
+</body>
+</html>
