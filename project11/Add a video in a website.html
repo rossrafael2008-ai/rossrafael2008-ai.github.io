@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta basics -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Title and description -->
+  <title>Embed a Service‑Hosted Video: Step‑by‑Step Tutorial</title>
+  <meta name="description" content="A clear, screenshot‑driven tutorial for embedding a service‑hosted video into a website using an external CSS stylesheet.">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Accessible skip link -->
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <!-- Site header -->
+<header class="site-header">
+    <div class="site-header__inner container">
+      <h1 class="site-title">How to Embed a Service‑Hosted Video Into Your Website</h1>
+      <p class="site-subtitle">Student project tutorial with cropped screenshots, accurate steps, and external CSS styling</p>
+    </div>
+</header>
+
+  <!-- Main content -->
+  <main id="content" class="content container">
+    <!-- Intro section -->
+    <section class="intro card">
+      <h2>Overview</h2>
+      <p>
+        In this tutorial, you’ll learn to embed a video hosted on a service (e.g., YouTube) into your web page.
+        Each step includes a screenshot, cropped tightly to the specific action. By the end, the selected video
+        is embedded and functioning. Most styling is handled via an external stylesheet.
+      </p>
+      <ul class="checklist">
+        <li><strong>Directions:</strong> Clear, step‑by‑step text instructions.</li>
+        <li><strong>Screenshots:</strong> One per step, tightly cropped.</li>
+        <li><strong>Accuracy:</strong> Verified embed technique using iframe.</li>
+        <li><strong>Styling:</strong> External CSS file, commented and clean.</li>
+        <li><strong>Example video:</strong> Embedded and playable at the end.</li>
+      </ul>
+    </section>
+
+    <!-- Requirements note -->
+    <section class="requirements card">
+      <h2>Before you begin</h2>
+      <ul class="list">
+        <li><strong>Choose a family‑friendly video:</strong> No mature content or profanity.</li>
+        <li><strong>Ensure embedding is enabled:</strong> Some uploaders restrict embeds.</li>
+        <li><strong>Prepare to take screenshots:</strong> Use your OS screenshot tool and crop around the relevant UI.</li>
+      </ul>
+      <p class="note">
+        If you’re unfamiliar with taking screenshots on your device, learn how first. Then proceed with the steps and capture each action.
+      </p>
+    </section>
+
+    <!-- Step-by-step tutorial -->
+    <section class="steps">
+      <h2>Steps to embed a video from YouTube</h2>
+
+      <!-- Step 1 -->
+      <article class="step card">
+        <h3>Step 1: Open the video and click Share</h3>
+        <p>
+          Navigate to your chosen video’s page. Beneath the video player, select the <strong>Share</strong> button.
+          This opens options for sharing and embedding.
+        </p>
+        <figure class="screenshot">
+          <img src="assets/screenshots/step-01-share-button.png" alt="Cropped screenshot of the YouTube Share button below the video player">
+          <figcaption>Share button location under the video player.</figcaption>
+        </figure>
+      </article>
+
+      <!-- Step 2 -->
+      <article class="step card">
+        <h3>Step 2: Select the Embed option</h3>
+        <p>
+          In the Share dialog, click <strong>Embed</strong>. You’ll see an iframe code snippet and optional settings like
+          showing player controls or privacy‑enhanced mode.
+        </p>
+        <figure class="screenshot">
+          <img src="assets/screenshots/step-02-embed-option.png" alt="Cropped screenshot of the Embed option inside the YouTube Share dialog">
+          <figcaption>Embed option inside the Share dialog.</figcaption>
+        </figure>
+      </article>
+
+      <!-- Step 3 -->
+      <article class="step card">
+        <h3>Step 3: Copy the iframe embed code</h3>
+        <p>
+          Click <strong>Copy</strong> to grab the iframe code. Confirm it contains the <code>https://www.youtube.com/embed/&lt;VIDEO_ID&gt;</code>
+          URL. If embedding is disabled for the video, choose a different one that allows embedding.
+        </p>
+        <figure class="screenshot">
+          <img src="assets/screenshots/step-03-copy-iframe.png" alt="Cropped screenshot of the iframe code area and Copy button">
+          <figcaption>The iframe embed code and Copy button.</figcaption>
+        </figure>
+      </article>
+
+      <!-- Step 4 -->
+      <article class="step card">
+        <h3>Step 4: Paste the iframe into your HTML</h3>
+        <p>
+          Open your project’s <code>index.html</code>. Locate the <strong>Embedded example</strong> section at the end and paste the iframe code
+          inside the designated container. Save the file.
+        </p>
+        <figure class="screenshot">
+          <img src="assets/screenshots/step-04-paste-code.png" alt="Cropped screenshot of a code editor showing the iframe pasted into the HTML section">
+          <figcaption>Pasting the iframe into the HTML where indicated.</figcaption>
+        </figure>
+      </article>
+
+      <!-- Step 5 -->
+      <article class="step card">
+        <h3>Step 5: Publish and test</h3>
+        <p>
+          Open the HTML file in your browser or deploy it (e.g., GitHub Pages). Confirm the player loads, controls work,
+          and the video plays successfully within your page.
+        </p>
+        <figure class="screenshot">
+          <img src="assets/screenshots/step-05-publish-and-test.png" alt="Cropped screenshot of the embedded player displayed and playing within the web page">
+          <figcaption>Embedded player functioning on your page.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <!-- Example embedded video -->
+    <section class="embedded-example card">
+      <h2>Embedded example video</h2>
+      <p>
+        Below is a family‑friendly example video, “Pokémon Horizonte Clip&nbsp; ”, which allows embedding and contains
+        Pokémon and the kids Liko, Rory and Dot and the professor Friedel</p>
+
+      <!-- Responsive video wrapper: keeps aspect ratio -->
+      <div class="video-frame" aria-label="Embedded video frame">
+        <!--
+          This iframe can be replaced with your copied embed code.
+          Ensure the src uses the /embed/ path and remove extra width/height attributes since CSS handles sizing.
+        -->
+       <!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+<title>Here is my own YouTuve Video</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Seitenverhältnis */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      margin: 20px auto;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to my video site&nbsp;</h1>
+  <p>Here is my own video site</p>
+
+<div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Aw1SbukqpCM?si=Y-1DjDVFZWoKh9UL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+</div>
+
+  <p>This video is from YouTube</p>
+</body>
+</html>
+
+          title="Pokémon Horizonte Clip"
+          loading="lazy"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+	  <iframe src="#" height="250" width="100%" title="Pokémon Horizonte">
+</iframe>
+      </div>
+
+      <p class="note">
+        If your chosen video’s uploader disabled embedding, select another video with embed enabled.
+      </p>
+    </section>
+
+    <!-- Submission guidance -->
+    <section class="submission card">
+      <h2>Save, upload, and submit</h2>
+      <ol class="list">
+        <li><strong>Save files:</strong> Ensure <code>index.html</code>, <code>styles.css</code>, and your <code>assets/screenshots</code> are saved.</li>
+        <li><strong>Commit to GitHub:</strong> Add, commit, and push all files to your repository.</li>
+        <li><strong>Publish (optional):</strong> Enable GitHub Pages for easy viewing and testing.</li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <p>&copy; 2025 Student Tutorial · External CSS, clean layout, accessible structure</p>
+    </div>
+</footer>
