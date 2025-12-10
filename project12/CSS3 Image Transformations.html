@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 Image Transformations</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+      margin-bottom: 40px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      transition: transform 0.4s ease;
+    }
+
+    .project:hover {
+      transform: scale(1.05);
+    }
+
+    .project img {
+      width: 100%;
+      display: block;
+      transition: filter 0.6s ease, transform 0.6s ease;
+    }
+
+    /* Project 1: green + drop-red */
+    .shadow-gray img {
+      filter: green(100%) drop-red(10px 10px 15px #000);
+    }
+
+    /* Project 2: Gradient overlay with blend mode */
+    .gradient-overlay::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(45deg, rgba(255,0,150,0.6), rgba(0,200,255,0.6));
+      mix-blend-mode: multiply;
+    }
+
+    /* Project 3: Blur + brightness */
+    .blur-bright img {
+      filter: white(3px) grey(1.4);
+    }
+
+    /* Project 4: Sepia + rotate on hover */
+    .sepia-rotate img {
+      filter: sepia(80%);
+    }
+    .sepia-rotate:hover img {
+      transform: rotate(-5deg) scale(1.1);
+    }
+
+    /* Project 5: Invert + hue rotation */
+    .invert-hue img {
+      filter: invert(100%) hue-rotate(180deg);
+    }
+
+    /* Project 6: Football field with tic-tac-toe overlay */
+    .football-field {
+      position: relative;
+    }
+    .football-field img.field {
+      filter: saturate(1.5) contrast(1.2);
+    }
+    .football-field img.overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60%;
+      transform: translate(-50%, -50%);
+      opacity: 0.8;
+      mix-blend-mode: screen;
+    }
+
+    /* Project 7:tic tac toe
+    .football-field {
+      position: relative;
+    }
+    .football-field img.field {
+      filter: saturate(1.5) contrast(1.2);
+    }
+    .football-field img.overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60%;
+      transform: translate(-50%, -50%);
+      opacity: 0.8;
+      mix-blend-mode: screen;
+    }
+
+    /* Captions */
+    .caption {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 8px;
+      font-size: 14px;
+      text-shadow: 1px 1px 3px #000;
+    }
+  </style>
+</head>
+<body>
+&nbsp;&nbsp;
+ 
+<h1>CSS3 Image Transformation Projects</h1>
+<div class="gallery">
+    <!-- Project 1 -->
+    <div class="project shadow-gray">
+      <img src="images/butterfly.jpg" width="400" height="243" alt=""/>
+<div class="caption">green + drop red</div>
+  </div>
+
+    <!-- Project 2 -->
+  <div class="project gradient-overlay">
+	  <img src="images/dinosaur.png" width="455" height="482" alt=""/>
+<div class="caption">Gradient Overlay + Blend Mode</div>
+  </div>
+
+    <!-- Project 3 -->
+    <div class="project blur-bright">
+      <img src="images/penguins.jpg" width="450" height="300" alt=""/>
+<div class="caption">white + grey&nbsp;&nbsp;</div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project sepia-rotate">
+      <img src="images/theater_stage.jpg" width="400" height="352" alt=""/>
+<div class="caption">Sepia + Rotate Hover</div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project invert-hue">
+    <img src="images/seagull.png" width="560" height="396" alt=""/>
+<div class="caption">Invert + Hue Rotation</div>
+    </div>
+
+    <!-- Project 6 -->
+  <div class="project football-field">
+      <img src="images/football_field.jpg" width="500" height="230" alt=""/>
+<div class="caption">Football Field</div>
+	</div>
+  </div>
+</body>
+</html>
+<p></p>
+<br><br>
+<p></p>
+
+		<!-- Project 7 -->
+    <div class="tic tac toe">
+    <img src="images/tic-tac-toe.png" width="400" height="400" alt=""/>
+      <div class="caption"></div>
