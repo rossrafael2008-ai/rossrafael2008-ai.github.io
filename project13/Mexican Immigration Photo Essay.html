@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mexican Immigration Photo Essay</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #111827;
+    --accent: #38bdf8;
+    --accent2: #a78bfa;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --ok: #22c55e;
+    --warn: #f59e0b;
+    --bad: #ef4444;
+  }
+  html, body { height: 100%; background: var(--bg); color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+  h1, h2, h3 { margin: 0.4rem 0 0.25rem; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .app {
+    display: grid; grid-template-columns: 340px 1fr; gap: 16px; height: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  .panel {
+    background: var(--panel); border-radius: 12px; padding: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    overflow: auto; max-height: calc(100vh - 24px);
+  }
+  .section-title { font-weight: 600; letter-spacing: 0.2px; }
+  .help { color: var(--muted); font-size: 0.95rem; }
+  .grid {
+    display: grid; grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 12px; align-items: start;
+  }
+  .entry {
+    background: #0b1020; border: 1px solid #1f2937; border-radius: 10px; padding: 10px;
+    display: grid; grid-template-columns: 1fr; gap: 8px;
+  }
+  .era-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #0a0f1e; border: 1px solid #223052; color: var(--text);
+    padding: 6px 10px; border-radius: 8px; font-size: 0.9rem;
+  }
+  .era-20 { box-shadow: inset 0 0 0 2px var(--accent); }
+  .era-21 { box-shadow: inset 0 0 0 2px var(--accent2); }
+  label { font-size: 0.9rem; color: var(--muted); }
+  input[type="text"], textarea, select {
+    width: 100%; background: #0a0f1e; border: 1px solid #243044; color: var(--text);
+    border-radius: 8px; padding: 8px 10px; outline: none;
+  }
+  textarea { min-height: 100px; resize: vertical; }
+  .row { display: flex; gap: 8px; align-items: center; }
+  .btn {
+    background: #0d162c; color: var(--text); border: 1px solid #223052; padding: 8px 12px;
+    border-radius: 10px; cursor: pointer; font-weight: 600;
+  }
+  .btn.primary { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(56,189,248,0.15); }
+  .btn.success { border-color: var(--ok); }
+  .btn.warn { border-color: var(--warn); }
+  .btn.danger { border-color: var(--bad); }
+  .badge { font-size: 0.85rem; border-radius: 999px; padding: 2px 10px; border: 1px solid #2b3b5c; color: var(--muted); }
+  .score { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
+  .score > div {
+    background: #0b1020; border: 1px solid #25304a; border-radius: 10px; padding: 8px;
+  }
+  .ok { color: var(--ok); }
+  .warn { color: var(--warn); }
+  .bad { color: var(--bad); }
+  .preview {
+    background: #0b1020; border: 1px solid #243044; border-radius: 12px; padding: 14px; margin-top: 12px;
+  }
+  .card {
+    border-bottom: 1px dashed #243044; padding-bottom: 10px; margin-bottom: 10px;
+  }
+  .card:last-child { border-bottom: none; }
+  .slideshow {
+    position: fixed; inset: 0; background: #01060f; display: none; z-index: 1000;
+    color: #cbd5e1;
+  }
+  .slide {
+    height: 100%; display: grid; grid-template-rows: auto 1fr auto; padding: 30px; box-sizing: border-box;
+  }
+  .slide h1 { font-size: 2rem; margin: 0; }
+  .slide h2 { font-size: 1.3rem; margin: 0.5rem 0; color: #93c5fd; }
+  .slide .caption { font-size: 1.1rem; line-height: 1.6; }
+  .slide .footer { display: flex; justify-content: space-between; align-items: center; color: #94a3b8; }
+  .kbd { border: 1px solid #334155; border-bottom-width: 3px; padding: 2px 6px; border-radius: 6px; font-size: 0.8rem; }
+  .sr-only { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+  .flex-end { display: flex; gap: 8px; justify-content: flex-end; align-items: center; }
+  .muted { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="app" role="application" aria-label="Mexican Immigration Photo Essay Builder">
+  <!-- Left: Controls -->
+  <aside class="panel" aria-label="Controls panel">
+    <h1 class="section-title">Mexican Immigration Photo Essay</h1>
+    <p class="help">Build a text-only photo essay: five entries for early 20th century and five for early 21st century. Provide a detailed caption for each. Then write a simple analysis paragraph.</p>
+
+    <div class="row">
+      <button class="btn primary" id="add20Btn" aria-label="Add early twentieth century entry">Add early 20th</button>
+      <button class="btn primary" id="add21Btn" aria-label="Add early twenty-first century entry">Add early 21st</button>
+      <button class="btn" id="shuffleBtn" aria-label="Shuffle entries">Shuffle</button>
+      <button class="btn danger" id="clearBtn" aria-label="Clear all data">Clear</button>
+    </div>
+
+    <div class="row" style="margin-top:10px">
+      <span class="badge">Required: 5 early 20th + 5 early 21st</span>
+      <span class="badge" id="countBadge">0 / 10</span>
+    </div>
+
+    <div class="score" aria-label="Rubric status">
+      <div>
+        <strong>Photo selection</strong>
+        <div id="rubricSelection" class="muted">Pending</div>
+      </div>
+      <div>
+        <strong>Captions</strong>
+        <div id="rubricCaptions" class="muted">Pending</div>
+      </div>
+      <div>
+        <strong>Analysis</strong>
+        <div id="rubricAnalysis" class="muted">Pending</div>
+      </div>
+      <div>
+        <strong>Total</strong>
+        <div id="rubricTotal" class="muted">0 / 12</div>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:12px">Analysis paragraph</h2>
+    <p class="help">Life for Mexican immigrants has changed in many ways. In the early 20th century, most worked in farms and faced strong discrimination. Laws often limited their rights. In the early 21st century, many immigrants work in different jobs and build communities. They still face challenges, like debates about immigration and border control. American attitudes have shifted over time. Some people welcome immigrants and value their culture. Others remain against immigration. What has stayed the same is the struggle for respect and fair treatment. Mexican immigrants continue to contribute to American society while seeking opportunity and equality.</p>
+
+    <h2 class="section-title" style="margin-top:12px">Export</h2>
+    <div class="row">
+      <button class="btn success" id="exportRTF">Download .rtf (Word compatible)</button>
+      <button class="btn success" id="exportHTML">Download .html (standalone)</button>
+    </div>
+
+    <h2 class="section-title" style="margin-top:12px">Slideshow and video</h2>
+    <div class="row">
+      <button class="btn warn" id="startShow">Start slideshow</button>
+      <button class="btn warn" id="recordShow">Record WebM</button>
+      <button class="btn warn" id="stopRecord" disabled>Stop recording</button>
+    </div>
+    <p class="help">Slideshow is text-only. Recording creates a WebM video of the slideshow.</p>
+  </aside>
+
+  <!-- Right: Entries and Preview -->
+  <main class="panel" aria-label="Entries and preview">
+    <h2 class="section-title">Entries</h2>
+    <p class="help">Each entry needs a title and a detailed caption explaining experiences or attitudes for its era. No photos will be used.</p>
+
+    <div id="entries" class="grid" aria-live="polite"></div>
+
+    <div class="preview" id="preview">
+      <h2 class="section-title">Photo essay preview (text-only)</h2>
+	  <img src="images/Photot 1.jpg" width="318" height="159" alt=""/>
+	  <img src="images/Photot 2.jpg" width="318" height="159" alt=""/>
+	  <img src="images/Photot 3.jpg" width="318" height="159" alt=""/>
+	  <img src="images/Photot 4.jpg" width="318" height="189" alt=""/>
+	  <img src="images/Photo 5.jpg" width="318" height="159" alt=""/>
+	  <img src="images/Photo 6.jpg" width="318" height="159" alt=""/>
+	  <img src="images/Photo 7.jpg" width="318" height="159" alt=""/>
+	  <img src="images/Photo 8.jpg" width="318" height="159" alt=""/>
+	  <img src="images/Photo 9.jpg" width="318" height="159" alt=""/>
+	  <img src="images/Photo 10.jpg" width="318" height="159" alt=""/>
+<div id="previewContent"></div>
+    </div>
+  </main>
+</div>
+	
+<div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/e5vk6mV68ls?si=imxUVQ4mu3pVRx1w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+</div>
+<!-- Slideshow overlay -->
+<div class="slideshow" id="slideshow" aria-hidden="true">
+  <div class="slide" id="slide">
+    <header>
+      <h1>Mexican Immigration: Then and Now</h1>
+      <h2 id="slideEra"></h2>
+    </header>
+    <article class="caption" id="slideBody"></article>
+    <footer class="footer">
+      <div><span class="kbd">←/→</span> prev/next • <span class="kbd">Esc</span> exit</div>
+      <div id="slideIndex"></div>
+    </footer>
+  </div>
+</div>
+
+<script>
+
+/* Data model */
+const model = {
+  entries: [],
+  analysis: "",
+  recording: null,
+  recorderChunks: []
+};
+
+const entriesEl = document.getElementById('entries');
+const previewEl = document.getElementById('previewContent');
+const analysisEl = document.getElementById('analysis');
+
+const add20Btn = document.getElementById('add20Btn');
+const add21Btn = document.getElementById('add21Btn');
+const shuffleBtn = document.getElementById('shuffleBtn');
+const clearBtn = document.getElementById('clearBtn');
+
+const countBadge = document.getElementById('countBadge');
+const rubricSelection = document.getElementById('rubricSelection');
+const rubricCaptions = document.getElementById('rubricCaptions');
+const rubricAnalysis = document.getElementById('rubricAnalysis');
+const rubricTotal = document.getElementById('rubricTotal');
+
+const simpleSeed = document.getElementById('simpleSeed');
+const refineAnalysisBtn = document.getElementById('refineAnalysis');
+
+const exportRTFBtn = document.getElementById('exportRTF');
+const exportHTMLBtn = document.getElementById('exportHTML');
+
+const slideshowEl = document.getElementById('slideshow');
+const slideEraEl = document.getElementById('slideEra');
+const slideBodyEl = document.getElementById('slideBody');
+const slideIndexEl = document.getElementById('slideIndex');
+const startShowBtn = document.getElementById('startShow');
+const recordShowBtn = document.getElementById('recordShow');
+const stopRecordBtn = document.getElementById('stopRecord');
+
+let slideIndex = 0;
+
+/* Utilities */
+const uid = () => Math.random().toString(36).slice(2);
+const eraLabel = (era) => era === 'early20' ? 'Early 20th century' : 'Early 21st century';
+
+function updateCounts() {
+  const c20 = model.entries.filter(e => e.era === 'early20').length;
+  const c21 = model.entries.filter(e => e.era === 'early21').length;
+  countBadge.textContent = `${model.entries.length} / 10 (20th: ${c20}, 21st: ${c21})`;
+}
+
+function scoreRubric() {
+  const c20 = model.entries.filter(e => e.era === 'early20').length;
+  const c21 = model.entries.filter(e => e.era === 'early21').length;
+  const selectionOK = (c20 === 5 && c21 === 5);
+  rubricSelection.textContent = selectionOK ? 'Meets requirement (5 + 5)' : 'Needs exactly five per era';
+  rubricSelection.className = selectionOK ? 'ok' : 'warn';
+
+  const captionQuality = model.entries.every(e => e.caption.trim().length >= 140);
+  rubricCaptions.textContent = captionQuality ? 'Detailed captions (≥140 chars each)' : 'Expand captions for depth';
+  rubricCaptions.className = captionQuality ? 'ok' : 'warn';
+
+  const analysisOK = (model.analysis.trim().length >= 140);
+  rubricAnalysis.textContent = analysisOK ? 'Analysis is substantial' : 'Analysis is too short';
+  rubricAnalysis.className = analysisOK ? 'ok' : 'warn';
+
+  const total = (selectionOK ? 4 : 2) + (captionQuality ? 4 : 2) + (analysisOK ? 4 : 2);
+  rubricTotal.textContent = `${total} / 12`;
+}
+
+function renderEntries() {
+  entriesEl.innerHTML = '';
+  model.entries.forEach((e, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'entry';
+    wrap.setAttribute('data-id', e.id);
+
+    const era = document.createElement('div');
+    era.className = `era-tag ${e.era === 'early20' ? 'era-20' : 'era-21'}`;
+    era.innerHTML = `<strong>${eraLabel(e.era)}</strong> <span class="muted">Entry ${i+1}</span>`;
+    wrap.appendChild(era);
+
+    const eraSelectLabel = document.createElement('label');
+    eraSelectLabel.textContent = 'Era';
+    wrap.appendChild(eraSelectLabel);
+
+    const eraSelect = document.createElement('select');
+    eraSelect.innerHTML = `
+      <option value="early20">Early 20th century</option>
+      <option value="early21">Early 21st century</option>
+    `;
+    eraSelect.value = e.era;
+    eraSelect.addEventListener('change', () => { e.era = eraSelect.value; sync(); });
+    wrap.appendChild(eraSelect);
+
+    const titleLabel = document.createElement('label');
+    titleLabel.textContent = 'Title (experience or attitude focus)';
+    wrap.appendChild(titleLabel);
+
+    const titleInput = document.createElement('input');
+    titleInput.type = 'text';
+    titleInput.placeholder = 'e.g., Bracero labor and farmwork conditions';
+    titleInput.value = e.title;
+    titleInput.addEventListener('input', () => { e.title = titleInput.value; sync(); });
+    wrap.appendChild(titleInput);
+
+    const captionLabel = document.createElement('label');
+    captionLabel.textContent = 'Detailed caption (explain what it represents)';
+    wrap.appendChild(captionLabel);
+
+    const captionInput = document.createElement('textarea');
+    captionInput.placeholder = 'Describe context, policies, daily life, discrimination or inclusion, and broader social impact.';
+    captionInput.value = e.caption;
+    captionInput.addEventListener('input', () => { e.caption = captionInput.value; sync(); });
+    wrap.appendChild(captionInput);
+
+    const controls = document.createElement('div');
+    controls.className = 'row';
+    const up = document.createElement('button');
+    up.className = 'btn';
+    up.textContent = 'Move up';
+    up.addEventListener('click', () => { moveEntry(e.id, -1); });
+    const down = document.createElement('button');
+    down.className = 'btn';
+    down.textContent = 'Move down';
+    down.addEventListener('click', () => { moveEntry(e.id, 1); });
+    const del = document.createElement('button');
+    del.className = 'btn danger';
+    del.textContent = 'Delete';
+    del.addEventListener('click', () => { removeEntry(e.id); });
+    controls.appendChild(up); controls.appendChild(down); controls.appendChild(del);
+    wrap.appendChild(controls);
+
+    entriesEl.appendChild(wrap);
+  });
+}
+
+function renderPreview() {
+  previewEl.innerHTML = '';
+  const title = document.createElement('div');
+  title.className = 'card';
+  title.innerHTML = `<h3>Overview</h3><p class="muted">Text-only collage of experiences and attitudes toward Mexican immigration, then and now.</p>`;
+  previewEl.appendChild(title);
+
+  const era20 = model.entries.filter(e => e.era === 'early20');
+  const era21 = model.entries.filter(e => e.era === 'early21');
+
+  const block20 = document.createElement('div');
+  block20.className = 'card';
+  block20.innerHTML = `<h3>Early twentieth century (5 entries)</h3>`;
+  era20.forEach((e, i) => {
+    const d = document.createElement('div');
+    d.innerHTML = `<p><strong>Entry ${i+1} — ${e.title || 'Untitled'}</strong></p><p>${escapeHTML(e.caption || '')}</p>`;
+    block20.appendChild(d);
+  });
+  previewEl.appendChild(block20);
+
+  const block21 = document.createElement('div');
+  block21.className = 'card';
+  block21.innerHTML = `<h3>Early twenty-first century (5 entries)</h3>`;
+  era21.forEach((e, i) => {
+    const d = document.createElement('div');
+    d.innerHTML = `<p><strong>Entry ${i+1} — ${e.title || 'Untitled'}</strong></p><p>${escapeHTML(e.caption || '')}</p>`;
+    block21.appendChild(d);
+  });
+  previewEl.appendChild(block21);
+
+  const analysisCard = document.createElement('div');
+  analysisCard.className = 'card';
+  analysisCard.innerHTML = `<h3>Analysis paragraph</h3><p>${escapeHTML(model.analysis || '')}</p>`;
+  previewEl.appendChild(analysisCard);
+}
+
+function moveEntry(id, delta) {
+  const i = model.entries.findIndex(e => e.id === id);
+  if (i < 0) return;
+  const j = i + delta;
+  if (j < 0 || j >= model.entries.length) return;
+  [model.entries[i], model.entries[j]] = [model.entries[j], model.entries[i]];
+  sync();
+}
+
+function removeEntry(id) {
+  model.entries = model.entries.filter(e => e.id !== id);
+  sync();
+}
+
+function escapeHTML(s) {
+  return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* Persistence */
+function save() {
+  localStorage.setItem('mexEssay', JSON.stringify({ entries: model.entries, analysis: model.analysis }));
+}
+function load() {
+  const raw = localStorage.getItem('mexEssay');
+  if (!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    model.entries = Array.isArray(data.entries) ? data.entries : [];
+    model.analysis = (data.analysis || '');
+    analysisEl.value = model.analysis;
+  } catch {}
+}
+
+/* Main sync */
+function sync() {
+  updateCounts();
+  renderEntries();
+  renderPreview();
+  scoreRubric();
+  save();
+}
+
+/* Add entries */
+function addEntry(era) {
+  if (model.entries.length >= 10) { alert('Limit of 10 entries reached.'); return; }
+  const e = {
+    id: uid(),
+    era,
+    title: '',
+    caption: ''
+  };
+  model.entries.push(e);
+  sync();
+}
+
+/* Buttons */
+add20Btn.addEventListener('click', () => addEntry('early20'));
+add21Btn.addEventListener('click', () => addEntry('early21'));
+shuffleBtn.addEventListener('click', () => {
+  for (let i = model.entries.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [model.entries[i], model.entries[j]] = [model.entries[j], model.entries[i]];
+  }
+  sync();
+});
+clearBtn.addEventListener('click', () => {
+  if (!confirm('Clear all entries and analysis?')) return;
+  model.entries = [];
+  model.analysis = '';
+  analysisEl.value = '';
+  sync();
+});
+
+analysisEl.addEventListener('input', () => { model.analysis = analysisEl.value; sync(); });
+
+simpleSeed.addEventListener('click', () => {
+  model.analysis = [
+    'Life for Mexican immigrants has changed.',
+    'In the early 20th century, many worked in farms.',
+    'They faced strong discrimination and harsh rules.',
+    'Some laws limited their rights and movement.',
+    'In the early 21st century, work is more diverse.',
+    'Communities are larger and more visible.',
+    'There are public debates about immigration.',
+    'Some people welcome immigrants and value their culture.',
+    'Others oppose immigration and call for strict control.',
+    'The struggle for respect remains.',
+    'Mexican immigrants seek opportunity and equality.',
+    'They contribute to American society in many ways.'
+  ].join(' ');
+  analysisEl.value = model.analysis;
+  sync();
+});
+
+refineAnalysisBtn.addEventListener('click', () => {
+  const s = (model.analysis || '').split('.').map(x => x.trim()).filter(Boolean);
+  const refined = s.map(line => {
+    // Keep sentences short; remove redundancy; keep simple connectors
+    if (line.length > 150) return line.slice(0, 150);
+    return line;
+  }).join('. ') + (s.length ? '.' : '');
+  model.analysis = refined;
+  analysisEl.value = refined;
+  sync();
+});
+
+/* Export RTF (Word compatible) */
+function rtfEscape(str) {
+  return (str || '').replace(/\\/g, '\\\\').replace(/{/g, '\\{').replace(/}/g, '\\}')
+                   .replace(/\n/g, '\\par ');
+}
+function makeRTF() {
+  const head = "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}}\\fs22 ";
+  let body = "\\b Mexican Immigration Photo Essay (Text-Only) \\b0\\par\\par ";
+  const c20 = model.entries.filter(e => e.era === 'early20');
+  const c21 = model.entries.filter(e => e.era === 'early21');
+
+  body += "\\b Early twentieth century (5 entries) \\b0\\par ";
+  c20.forEach((e, i) => {
+    body += `\\par \\b Entry ${i+1} — ${rtfEscape(e.title || 'Untitled')} \\b0\\par ${rtfEscape(e.caption || '')}\\par `;
+  });
+
+  body += "\\par \\b Early twenty-first century (5 entries) \\b0\\par ";
+  c21.forEach((e, i) => {
+    body += `\\par \\b Entry ${i+1} — ${rtfEscape(e.title || 'Untitled')} \\b0\\par ${rtfEscape(e.caption || '')}\\par `;
+  });
+
+  body += "\\par \\b Analysis paragraph \\b0\\par " + rtfEscape(model.analysis || '') + "\\par ";
+  return head + body + "}";
+}
+
+exportRTFBtn.addEventListener('click', () => {
+  const blob = new Blob([makeRTF()], { type: 'application/rtf' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'mexican-immigration-photo-essay.rtf'; a.click();
+  URL.revokeObjectURL(url);
+});
+
+/* Export standalone HTML */
+function makeHTML() {
+  const c20 = model.entries.filter(e => e.era === 'early20');
+  const c21 = model.entries.filter(e => e.era === 'early21');
+  const html = `
+<!DOCTYPE html><html lang="en"><meta charset="utf-8"><title>Mexican Immigration Photo Essay (Text-Only)</title>
+<style>
+body{font-family:Georgia,serif;margin:40px;line-height:1.6;color:#111}
+h1,h2{margin-bottom:12px}
+.card{border-top:1px solid #ccc;padding-top:12px;margin-top:12px}
+.muted{color:#666}
+</style>
+<h1>Mexican Immigration Photo Essay (Text-Only)</h1>
+<p class="muted">Five entries from the early 20th century and five from the early 21st century. Captions explain experiences and attitudes. No images are included.</p>
+<div class="card"><h2>Early twentieth century</h2>
+${c20.map((e,i)=>`<p><strong>Entry ${i+1} — ${escapeHTML(e.title||'Untitled')}</strong><br>${escapeHTML(e.caption||'')}</p>`).join('')}
+</div>
+<div class="card"><h2>Early twenty-first century</h2>
+${c21.map((e,i)=>`<p><strong>Entry ${i+1} — ${escapeHTML(e.title||'Untitled')}</strong><br>${escapeHTML(e.caption||'')}</p>`).join('')}
+</div>
+<div class="card"><h2>Analysis paragraph</h2><p>${escapeHTML(model.analysis||'')}</p></div>
+</html>`;
+  return html;
+}
+exportHTMLBtn.addEventListener('click', () => {
+  const blob = new Blob([makeHTML()], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'mexican-immigration-photo-essay.html'; a.click();
+  URL.revokeObjectURL(url);
+});
+
+/* Slideshow */
+function startSlideshow() {
+  if (model.entries.length === 0) { alert('Add entries first.'); return; }
+  slideshowEl.style.display = 'block';
+  slideshowEl.setAttribute('aria-hidden', 'false');
+  slideIndex = 0;
+  renderSlide();
+}
+function stopSlideshow() {
+  slideshowEl.style.display = 'none';
+  slideshowEl.setAttribute('aria-hidden', 'true');
+}
+function renderSlide() {
+  const e = model.entries[slideIndex];
+  slideEraEl.textContent = `${eraLabel(e.era)} — ${e.title || 'Untitled'}`;
+  slideBodyEl.textContent = e.caption || '';
+  slideIndexEl.textContent = `Slide ${slideIndex+1} of ${model.entries.length}`;
+}
+
+startShowBtn.addEventListener('click', startSlideshow);
+
+document.addEventListener('keydown', (ev) => {
+  if (slideshowEl.style.display !== 'block') return;
+  if (ev.key === 'Escape') { stopSlideshow(); }
+  if (ev.key === 'ArrowRight') { slideIndex = Math.min(slideIndex + 1, model.entries.length - 1); renderSlide(); }
+  if (ev.key === 'ArrowLeft') { slideIndex = Math.max(slideIndex - 1, 0); renderSlide(); }
+});
+
+/* Video recording (WebM) */
+async function startRecording() {
+  if (slideshowEl.style.display !== 'block') startSlideshow();
+  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: false });
+  model.recording = new MediaRecorder(stream, { mimeType: 'video/webm;codecs=vp9' });
+  model.recorderChunks = [];
+  model.recording.ondataavailable = (e) => { if (e.data.size > 0) model.recorderChunks.push(e.data); };
+  model.recording.onstop = () => {
+    const blob = new Blob(model.recorderChunks, { type: 'video/webm' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'mexican-immigration-photo-essay.webm'; a.click();
+    URL.revokeObjectURL(url);
+  };
+  model.recording.start();
+  stopRecordBtn.disabled = false;
+}
+recordShowBtn.addEventListener('click', () => {
+  startRecording().catch(err => alert('Recording failed: ' + err));
+});
+stopRecordBtn.addEventListener('click', () => {
+  if (model.recording && model.recording.state !== 'inactive') model.recording.stop();
+  stopRecordBtn.disabled = true;
+});
+
+/* Initialize */
+load();
+sync();
+
+/* Accessibility: announce changes */
+const liveRegion = document.createElement('div');
+liveRegion.className = 'sr-only';
+liveRegion.setAttribute('aria-live', 'polite');
+document.body.appendChild(liveRegion);
+function announce(msg) {
+  liveRegion.textContent = msg;
+}
+announce('Photo essay builder loaded.');
+</script>
+</body>
+</html>
