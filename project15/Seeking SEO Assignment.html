@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seeking SEO Assignment | Lesson Activity</title>
+  <meta name="description" content="Explore how your favorite web pages optimize for search engine rankings with the Seeking SEO assignment." />
+  <meta name="keywords" content="SEO assignment, search engine optimization, web design, rankings, student activity" />
+  <meta name="author" content="Your Course Name" />
+
+  <!-- Open Graph (for richer search/social previews) -->
+  <meta property="og:title" content="Seeking SEO Assignment" />
+  <meta property="og:description" content="Investigate how websites use SEO techniques and suggest improvements with this guided assignment." />
+  <meta property="og:type" content="website" />
+
+  <!-- Structured data (JSON-LD) for an educational assignment -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Seeking SEO Assignment",
+      "description": "Students analyze how websites implement search engine optimization (SEO) and suggest improvements.",
+      "educationalLevel": "High School, Undergraduate",
+      "learningResourceType": "Assignment",
+      "about": [
+        "Search Engine Optimization",
+        "Web Design",
+        "Digital Marketing"
+      ]
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --bg-elevated: #111827;
+      --bg-highlight: #1f2937;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-strong: #0ea5e9;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2933;
+      --danger: #f97373;
+      --good: #4ade80;
+      --warning: #fbbf24;
+      --shadow-soft: 0 22px 45px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --transition-fast: 150ms ease-out;
+      --transition-med: 220ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #020617 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 24px auto 40px;
+      padding: 0 16px 40px;
+    }
+
+    /* Top navigation */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.88),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .top-nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .brand-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: border-color var(--transition-fast), background var(--transition-fast),
+        color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    .nav-link--primary {
+      border-color: rgba(56, 189, 248, 0.5);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.1));
+      color: var(--accent-strong);
+    }
+
+    /* Hero banner */
+    .hero {
+      margin-top: 18px;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(94, 234, 212, 0.14), transparent 60%),
+        linear-gradient(135deg, #020617, #020617 55%, #020617 100%);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      overflow: hidden;
+      position: relative;
+      padding: 26px 26px 22px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 3.1fr 2.4fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-tagline {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.9);
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      letter-spacing: 0.02em;
+      margin: 0 0 4px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 16px;
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      max-width: 36rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-meta-pill {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-pill strong {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .hero-meta-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background var(--transition-med), transform var(--transition-fast),
+        box-shadow var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #0b1120;
+      border-color: rgba(148, 163, 184, 0.6);
+      box-shadow: 0 14px 30px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.65);
+    }
+
+    .btn--ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .btn--ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .btn--sm {
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      border-radius: 999px;
+    }
+
+    .hero-hint {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .hero-hint strong {
+      color: var(--accent-strong);
+      font-weight: 500;
+    }
+
+    .hero-panel {
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .hero-panel-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-panel-chip {
+      font-size: 0.72rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.14);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      color: var(--good);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .hero-panel-body {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .hero-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .hero-pill {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      color: var(--text-main);
+    }
+
+    .hero-panel-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .hero-panel-progress {
+      display: inline-flex;
+      gap: 3px;
+    }
+
+    .progress-dot {
+      width: 5px;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.3);
+    }
+
+    .progress-dot--active {
+      background: linear-gradient(180deg, #38bdf8, #6366f1);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
+    }
+
+    .hero-panel-badge {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Layout for sections */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 20px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Cards */
+    .card {
+      background: rgba(15, 23, 42, 0.97);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      padding: 16px 18px 16px;
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-badge {
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-body p {
+      margin: 0 0 12px;
+    }
+
+    .card-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-section-title {
+      margin: 10px 0 4px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
+    .card-small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Download area */
+    .download-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1.6fr;
+      gap: 14px;
+      align-items: flex-start;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 700px) {
+      .download-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .download-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .download-note strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .download-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    /* Rubric table */
+    .rubric-table-wrapper {
+      margin-top: 10px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      overflow: hidden;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    thead {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    th,
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+      vertical-align: top;
+    }
+
+    th {
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .rubric-criterion {
+      font-weight: 500;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    .rubric-level {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .rubric-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.72rem;
+      margin-top: 3px;
+      color: var(--text-muted);
+    }
+
+    .rubric-tag--good {
+      border-color: rgba(74, 222, 128, 0.5);
+      color: var(--good);
+    }
+
+    .rubric-tag--warn {
+      border-color: rgba(234, 179, 8, 0.5);
+      color: var(--warning);
+    }
+
+    .rubric-tag--bad {
+      border-color: rgba(248, 113, 113, 0.7);
+      color: var(--danger);
+    }
+
+    /* Collapsible analysis sections */
+    .accordion {
+      margin-top: 10px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      overflow: hidden;
+    }
+
+    .accordion-item + .accordion-item {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 12px;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.96);
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .accordion-header:hover {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .accordion-title {
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+
+    .accordion-subtitle {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .accordion-toggle {
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform var(--transition-fast), color var(--transition-fast);
+      color: var(--text-muted);
+    }
+
+    .accordion-toggle--open {
+      transform: rotate(90deg);
+      color: var(--accent-strong);
+    }
+
+    .accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 260ms ease-in-out, padding 260ms ease-in-out;
+      padding: 0 12px;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .accordion-panel-inner {
+      padding: 8px 0 10px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .accordion-panel.open {
+      padding-top: 4px;
+      padding-bottom: 6px;
+    }
+
+    .accordion-panel-list {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    .accordion-panel-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Guiding checklist */
+    .checklist {
+      margin-top: 8px;
+      padding: 9px 10px;
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .checklist-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .checklist ul {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .checklist li {
+      margin-bottom: 3px;
+    }
+
+    /* Footer hint */
+    .footer-note {
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .footer-note strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top navigation -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="brand">
+        <span class="brand-title">Digital Strategy Lab</span>
+        <span class="brand-subtitle">Module: Search Engine Optimization</span>
+      </div>
+      <nav class="nav-links" aria-label="Assignment sections">
+        <button class="nav-link" data-scroll-target="#overview">Overview</button>
+        <button class="nav-link" data-scroll-target="#instructions">Lesson content</button>
+        <button class="nav-link" data-scroll-target="#downloads">Worksheet</button>
+        <button class="nav-link" data-scroll-target="#rubric">Rubric</button>
+        <button class="nav-link nav-link--primary" data-scroll-target="#activity">
+          Turn it in
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero banner -->
+    <section class="hero" id="overview" aria-labelledby="hero-heading">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-tagline">
+            <span class="hero-dot" aria-hidden="true"></span>
+            <span>Lesson activity &bull; SEO deep dive</span>
+          </div>
+          <h1 class="hero-title" id="hero-heading">Seeking SEO Assignment</h1>
+          <p class="hero-subtitle">
+            Do you know how your favorite web pages optimize for the highest search engine rankings?
+            In this activity, you will look closely at real websites and uncover how they use — or
+            ignore — key SEO techniques.
+          </p>
+          <div class="hero-meta">
+            <div class="hero-meta-pill">
+              <strong>Focus:</strong>
+              <span>On-page SEO analysis</span>
+            </div>
+            <div class="hero-meta-pill">
+              <strong>Websites:</strong>
+              <span>Use 3 regularly visited sites</span>
+            </div>
+            <div class="hero-meta-pill">
+              <strong>Time:</strong>
+              <span>~45–60 minutes</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn--primary" data-scroll-target="#activity">
+              Turn it in
+            </button>
+            <button class="btn btn--ghost btn--sm" data-scroll-target="#downloads">
+              Download worksheet
+            </button>
+            <button class="btn btn--ghost btn--sm" data-scroll-target="#rubric">
+              View grading rubric
+            </button>
+          </div>
+          <p class="hero-hint">
+            <strong>Hint:</strong>
+            It’s a good idea <em>not</em> to choose the most popular websites or sites with a single
+            purpose (like only video sharing) — those are often harder to evaluate.
+          </p>
+        </div>
+
+        <!-- Right hero panel -->
+        <aside class="hero-panel" aria-label="Assignment snapshot">
+          <div class="hero-panel-header">
+            <div>
+              <div class="hero-panel-title">Assignment snapshot</div>
+              <div class="card-small">What you will investigate in this lesson</div>
+            </div>
+            <span class="hero-panel-chip">
+              In progress
+            </span>
+          </div>
+          <div class="hero-panel-body">
+            You’ll analyze how three websites you visit regularly use search engine optimization.
+            Notice how the things you like or dislike about each site often connect directly to how
+            well it is designed for SEO and user experience.
+            <div class="hero-pill-list">
+              <span class="hero-pill">Meta titles &amp; descriptions</span>
+              <span class="hero-pill">Headings &amp; content structure</span>
+              <span class="hero-pill">Internal links</span>
+              <span class="hero-pill">Usability &amp; readability</span>
+            </div>
+          </div>
+          <div class="hero-panel-footer">
+            <div>
+              <div class="card-small">Progress through the assignment</div>
+              <div class="hero-panel-progress" aria-hidden="true">
+                <div class="progress-dot progress-dot--active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+              </div>
+            </div>
+            <span class="hero-panel-badge">
+              2 core tasks • 1 worksheet
+            </span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Main layout -->
+    <section class="layout" aria-label="Lesson content and rubric">
+      <!-- Left: lesson content -->
+      <article aria-label="Lesson content" id="instructions">
+        <section class="card" aria-labelledby="lesson-content-heading">
+          <header class="card-header">
+            <h2 class="card-title" id="lesson-content-heading">Lesson content banner</h2>
+            <span class="card-badge">Core instructions</span>
+          </header>
+          <div class="card-body">
+            <p>
+              Having more knowledge of search engine optimization (SEO), you can see how some of
+              your favorite websites keep SEO techniques in mind when designing their pages. And
+              maybe some of them miss out on opportunities to rank higher in search results!
+            </p>
+            <p>
+              That’s exactly what you’re going to investigate in this assignment. You will explore
+              three websites you already visit regularly and examine how they use SEO methods —
+              and how they could do better.
+            </p>
+
+            <h3 class="card-section-title">What you will analyze</h3>
+            <p>
+              Think of this as a guided “SEO concept illustration” using real-world examples. You
+              will:
+            </p>
+            <ul>
+              <li>Identify specific SEO methods being used on each site.</li>
+              <li>Describe how those methods contribute to search engine rankings and user experience.</li>
+              <li>Suggest additional ways each site could improve its SEO.</li>
+            </ul>
+
+            <div class="checklist" aria-label="Website selection tips">
+              <div class="checklist-title">Choosing your websites</div>
+              <ul>
+                <li>Avoid extremely popular, global sites (they’re complex and harder to evaluate).</li>
+                <li>Avoid sites that serve a singular purpose (for example, only video sharing).</li>
+                <li>Prefer sites you use often for information, shopping, or services.</li>
+                <li>Pick three different types of websites if possible (for example, news, e-commerce, blog).</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Accordion: identify vs potential SEO -->
+        <section class="card" id="activity" aria-labelledby="activity-heading" style="margin-top: 16px;">
+          <header class="card-header">
+            <h2 class="card-title" id="activity-heading">Turn it in</h2>
+            <span class="card-badge">Submission guidance</span>
+          </header>
+          <div class="card-body">
+            <p>
+              Your completed work will be graded using two major criteria: how well you
+              <strong>identify SEO</strong> on each website and how clearly you propose
+              <strong>potential SEO improvements</strong> for those sites.
+            </p>
+
+            <div class="accordion" aria-label="Assignment tasks">
+              <!-- Identify SEO -->
+              <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                  <div>
+                    <div class="accordion-title">Identify SEO</div>
+                    <div class="accordion-subtitle">
+                      Describe the SEO methods being used on each website.
+                    </div>
+                  </div>
+                  <span class="accordion-toggle" aria-hidden="true">&#9654;</span>
+                </button>
+                <div class="accordion-panel" aria-hidden="true">
+                  <div class="accordion-panel-inner">
+                    <p>
+                      For each website, carefully examine how the page is built and how information
+                      is presented. Your goal is to <strong>describe the SEO methods</strong> that
+                      are already in place.
+                    </p>
+                    <p>Look for things like:</p>
+                    <ul class="accordion-panel-list">
+                      <li>Clear, descriptive page titles and meta descriptions.</li>
+                      <li>Logical heading structure (H1, H2, H3) that matches the page’s main topics.</li>
+                      <li>Readable, keyword-focused content that feels natural instead of stuffed.</li>
+                      <li>Internal links that help you navigate to related pages.</li>
+                      <li>Clean, user-friendly layout that keeps visitors on the site longer.</li>
+                    </ul>
+                    <p>
+                      When you write your answers, be specific: point to real examples from the site
+                      (for example, “The home page uses an H1 that clearly states the main topic”).
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Potential SEO -->
+              <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                  <div>
+                    <div class="accordion-title">Potential SEO</div>
+                    <div class="accordion-subtitle">
+                      Explain other ways SEO methods could have been used.
+                    </div>
+                  </div>
+                  <span class="accordion-toggle" aria-hidden="true">&#9654;</span>
+                </button>
+                <div class="accordion-panel" aria-hidden="true">
+                  <div class="accordion-panel-inner">
+                    <p>
+                      Next, imagine you are an SEO consultant for each site. Based on what you see,
+                      <strong>explain how the website could improve its SEO</strong>.
+                    </p>
+                    <p>Consider improvements such as:</p>
+                    <ul class="accordion-panel-list">
+                      <li>Making titles and headings more descriptive and aligned with user search intent.</li>
+                      <li>Adding or improving meta descriptions to summarize each page clearly.</li>
+                      <li>Rewriting content to be more focused, readable, and keyword-informed.</li>
+                      <li>Strengthening internal linking between related articles or product pages.</li>
+                      <li>Improving navigation, page speed, or mobile friendliness to support better SEO.</li>
+                    </ul>
+                    <p>
+                      Your suggestions should connect back to specific examples (for example, “The
+                      ‘Contact’ page has no meta description; adding one would help users understand
+                      what they’ll find there from search results.”).
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top: 10px;">
+              Use your worksheet to organize your observations and suggestions for the three
+              websites you selected. When you’re finished, follow your course’s instructions to
+              submit your completed worksheet.
+            </p>
+          </div>
+        </section>
+      </article>
+
+      <!-- Right: downloads and rubric -->
+      <aside aria-label="Worksheet downloads and rubric">
+        <!-- Downloads -->
+        <section class="card" id="downloads" aria-labelledby="downloads-heading">
+          <header class="card-header">
+            <h2 class="card-title" id="downloads-heading">Download your worksheet</h2>
+            <span class="card-badge">Activity files</span>
+          </header>
+          <div class="card-body">
+            <p>
+              Click the Activity button below to download this assignment’s worksheet. If you still
+              have your “Taking a Closer Look” worksheet from the start of the course, you may use
+              the same list of websites. If not, you can select three websites you visit regularly.
+            </p>
+
+            <div class="download-grid">
+              <div class="download-note">
+                <strong>Worksheet reminder:</strong>
+                You’ll use the worksheet to:
+                <ul>
+                  <li>Record the three websites you chose.</li>
+                  <li>Note examples of SEO methods used on each site.</li>
+                  <li>Write down your ideas for potential SEO improvements.</li>
+                </ul>
+              </div>
+              <div class="download-buttons">
+                <button class="btn btn--ghost" type="button">
+                  PDF format
+                </button>
+                <button class="btn btn--ghost" type="button">
+                  Word format
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Rubric -->
+        <section class="card" id="rubric" aria-labelledby="rubric-heading" style="margin-top: 16px;">
+          <header class="card-header">
+            <h2 class="card-title" id="rubric-heading">Grading rubric</h2>
+            <span class="card-badge">How you’ll be evaluated</span>
+          </header>
+          <div class="card-body">
+            <p>
+              Your work will be evaluated based on how clearly you identify existing SEO methods
+              and how thoughtfully you propose additional SEO strategies for each website.
+            </p>
+
+            <div class="rubric-table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Criterion</th>
+                    <th scope="col">Strong performance</th>
+                    <th scope="col">Developing performance</th>
+                    <th scope="col">Needs improvement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="rubric-criterion">Identify SEO</td>
+                    <td class="rubric-level">
+                      Clearly describes multiple SEO methods used on each website with concrete
+                      examples (titles, headings, content, links, etc.).
+                      <div class="rubric-tag rubric-tag--good">High clarity</div>
+                    </td>
+                    <td class="rubric-level">
+                      Mentions some SEO methods but explanations are general, incomplete, or missing
+                      specific examples from the websites.
+                      <div class="rubric-tag rubric-tag--warn">Partial detail</div>
+                    </td>
+                    <td class="rubric-level">
+                      Provides few or no SEO methods and does not connect them to the actual
+                      websites being analyzed.
+                      <div class="rubric-tag rubric-tag--bad">Unclear / missing</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="rubric-criterion">Potential SEO</td>
+                    <td class="rubric-level">
+                      Suggests several realistic, specific improvements that clearly connect to how
+                      search engines and users will benefit.
+                      <div class="rubric-tag rubric-tag--good">Insightful recommendations</div>
+                    </td>
+                    <td class="rubric-level">
+                      Provides some potential improvements, but ideas are general, vague, or not
+                      always linked to SEO impact.
+                      <div class="rubric-tag rubric-tag--warn">Basic recommendations</div>
+                    </td>
+                    <td class="rubric-level">
+                      Offers few or no suggestions, or suggestions do not relate meaningfully to SEO
+                      or user experience.
+                      <div class="rubric-tag rubric-tag--bad">Limited recommendations</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p style="margin-top: 10px;">
+              Use this rubric as a checklist before you submit. Ask yourself: Have I clearly
+              <strong>described</strong> the SEO methods being used, and have I thoughtfully
+              <strong>explained</strong> how each site could better optimize for search engines?
+            </p>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <!-- Footer hint -->
+    <footer class="footer-note">
+      <p>
+        When in doubt, look at each page through two lenses:
+        <strong>“Can a search engine understand this?”</strong>
+        and
+        <strong>“Would a real person enjoy using this?”</strong>
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    // Smooth scrolling for nav buttons and hero buttons
+    document.querySelectorAll("[data-scroll-target]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetSelector = btn.getAttribute("data-scroll-target");
+        if (!targetSelector) return;
+        var target = document.querySelector(targetSelector);
+        if (!target) return;
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.pageYOffset - 80,
+          behavior: "smooth"
+        });
+      });
+    });
+
+    // Simple accordion logic
+    document.querySelectorAll(".accordion-item").forEach(function (item) {
+      var header = item.querySelector(".accordion-header");
+      var panel = item.querySelector(".accordion-panel");
+      var toggle = item.querySelector(".accordion-toggle");
+
+      function closePanel() {
+        panel.style.maxHeight = "0px";
+        panel.classList.remove("open");
+        panel.setAttribute("aria-hidden", "true");
+        toggle.classList.remove("accordion-toggle--open");
+      }
+
+      function openPanel() {
+        panel.classList.add("open");
+        panel.setAttribute("aria-hidden", "false");
+        // Measure content height
+        var inner = panel.querySelector(".accordion-panel-inner");
+        var height = inner ? inner.offsetHeight + 16 : 120;
+        panel.style.maxHeight = height + "px";
+        toggle.classList.add("accordion-toggle--open");
+      }
+
+      closePanel();
+
+      header.addEventListener("click", function () {
+        var isOpen = panel.classList.contains("open");
+        if (isOpen) {
+          closePanel();
+        } else {
+          // Optionally close siblings to keep one open at a time
+          item.parentElement.querySelectorAll(".accordion-panel.open").forEach(function (openPanelEl) {
+            if (openPanelEl !== panel) {
+              openPanelEl.style.maxHeight = "0px";
+              openPanelEl.classList.remove("open");
+              openPanelEl.setAttribute("aria-hidden", "true");
+              var siblingToggle = openPanelEl.parentElement.querySelector(".accordion-toggle");
+              if (siblingToggle) {
+                siblingToggle.classList.remove("accordion-toggle--open");
+              }
+            }
+          });
+          openPanel();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
