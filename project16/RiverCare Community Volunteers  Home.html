@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RiverCare Community Volunteers – local volunteer group dedicated to cleaning and protecting the river.">
+  <meta name="keywords" content="volunteer, community, environment, river cleanup, RiverCare">
+  <meta name="author" content="Your Name">
+  <title>RiverCare Community Volunteers | Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="logo-area">
+      <img src="images/logo.png" alt="RiverCare Community Volunteers logo" class="logo">
+      <div>
+        <h1>RiverCare Community Volunteers</h1>
+        <p class="tagline">Protecting our river, one cleanup at a time.</p>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Our Mission</a></li>
+        <li><a href="projects.html">Projects & Impact</a></li>
+        <li><a href="schedule.html">Event Schedule</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="contact.html">Join & Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero section using flexbox -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-text">
+        <h2 id="hero-heading">Join us in restoring our river</h2>
+        <p>
+          RiverCare Community Volunteers is a local group dedicated to cleaning, restoring, and protecting
+          the Greenway River. We organize monthly cleanups, educational workshops, and community events.
+        </p>
+        <a class="btn-primary" href="contact.html">Become a Volunteer</a>
+      </div>
+      <figure class="hero-image">
+        <img src="images/cleanup-team.jpg" alt="Volunteers cleaning trash along the riverbank">
+        <figcaption>Our volunteers during the Spring River Cleanup event.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Simple list + nested list (complex) -->
+    <section aria-labelledby="why-volunteer-heading">
+      <h2 id="why-volunteer-heading">Why volunteer with RiverCare?</h2>
+      <div class="two-column">
+        <div>
+          <h3>Simple benefits list</h3>
+          <ul class="simple-list">
+            <li>Make a visible impact in your community</li>
+            <li>Meet like-minded people</li>
+            <li>Learn about local ecosystems</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Complex, nested list of activities</h3>
+          <ul class="complex-list">
+            <li>Monthly River Cleanups
+              <ul>
+                <li>Trash collection and sorting</li>
+                <li>Water quality sampling</li>
+                <li>Habitat restoration (planting native species)</li>
+              </ul>
+            </li>
+            <li>Educational Outreach
+              <ul>
+                <li>School presentations</li>
+                <li>Community workshops
+                  <ul>
+                    <li>Recycling best practices</li>
+                    <li>Reducing plastic use</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Advocacy and Partnerships
+              <ul>
+                <li>Working with local government</li>
+                <li>Partnering with environmental NGOs</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video with accessibility features -->
+    <section aria-labelledby="video-heading">
+      <h2 id="video-heading">Watch our story</h2>
+      <p>
+        This short video introduces our mission and shows highlights from recent events.
+        A transcript is provided below for visitors with hearing impairments.
+      </p>
+
+      <figure class="video-wrapper">
+        <video controls aria-describedby="video-desc" width="640">
+          <source src="media/rivercare-intro.mp4" type="video/mp4">
+          <track kind="captions" src="media/rivercare-captions.vtt" srclang="en" label="English captions" default>
+          Your browser does not support the video tag. Please read the transcript below.
+        </video>
+        <figcaption id="video-desc">Introductory video about RiverCare Community Volunteers.</figcaption>
+      </figure>
+
+      <details class="transcript">
+        <summary>Read video transcript</summary>
+        <p>
+          [Narrator] RiverCare Community Volunteers brings neighbors together to protect the Greenway River...
+          (continue full transcript here).
+        </p>
+      </details>
+    </section>
+
+    <!-- External link with descriptive text -->
+    <section aria-labelledby="learn-more-heading">
+      <h2 id="learn-more-heading">Learn more about river conservation</h2>
+      <p>
+        To explore broader environmental efforts, visit the
+        <a href="https://www.americanrivers.org/" target="_blank" rel="noopener noreferrer">
+          American Rivers organization website
+        </a>, which offers resources on river protection, policy, and volunteer opportunities.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> RiverCare Community Volunteers. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Simple JS enhancement (not required, but nice): dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about the mission, vision, and values of RiverCare Community Volunteers.">
+  <title>About Our Mission | RiverCare Community Volunteers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="logo-area">
+      <img src="images/logo.png" alt="RiverCare Community Volunteers logo" class="logo">
+      <div>
+        <h1>RiverCare Community Volunteers</h1>
+        <p class="tagline">Protecting our river, one cleanup at a time.</p>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="about.html">About Our Mission</a></li>
+        <li><a href="projects.html">Projects and Impact</a></li>
+        <li><a href="schedule.html">Event Schedule</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="contact.html">Join and Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="about-heading" class="grid-two">
+      <div>
+        <h2 id="about-heading">Our mission, vision, and values</h2>
+        <p>
+          RiverCare Community Volunteers was founded in 2015 by a small group of neighbors who were concerned
+          about increasing pollution in the Greenway River. Since then, we have grown into a network of over
+          200 active volunteers.
+        </p>
+        <h3>Mission</h3>
+        <p>
+          To restore and protect the Greenway River through hands-on cleanups, education, and community advocacy.
+        </p>
+        <h3>Vision</h3>
+        <p>
+          A thriving, clean river that supports wildlife, recreation, and a healthy community for generations.
+        </p>
+        <h3>Core values</h3>
+        <ul class="simple-list">
+          <li>Community collaboration</li>
+          <li>Environmental stewardship</li>
+          <li>Education and empowerment</li>
+          <li>Transparency and accountability</li>
+        </ul>
+      </div>
+
+      <figure>
+        <img src="images/river-sunrise.jpg" alt="Sunrise over a calm river with trees on both sides">
+        <figcaption>Early morning view of the Greenway River, our shared responsibility.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> RiverCare Community Volunteers. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore RiverCare projects and their environmental impact.">
+  <title>Projects and Impact | RiverCare Community Volunteers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="logo-area">
+      <img src="images/logo.png" alt="RiverCare Community Volunteers logo" class="logo">
+      <div>
+        <h1>RiverCare Community Volunteers</h1>
+        <p class="tagline">Protecting our river, one cleanup at a time.</p>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Our Mission</a></li>
+        <li><a class="active" href="projects.html">Projects and Impact</a></li>
+        <li><a href="schedule.html">Event Schedule</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="contact.html">Join and Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Major projects and impact</h2>
+      <p>
+        Below is a summary of our key projects, including the number of volunteers involved, trash removed,
+        and special notes about each initiative.
+      </p>
+
+      <!-- Complex table -->
+      <div class="table-wrapper" role="region" aria-label="Project impact table" tabindex="0">
+        <table class="data-table">
+          <caption>RiverCare Project Impact Summary (Last 3 Years)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Year</th>
+              <th scope="col">Volunteers</th>
+              <th scope="col">Trash Removed (kg)</th>
+              <th scope="col">Special Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" rowspan="2">Spring River Cleanup</th>
+              <td>2023</td>
+              <td>85</td>
+              <td>1,200</td>
+              <td rowspan="2">Plastic bottles, fishing line, and microplastics</td>
+            </tr>
+            <tr>
+              <td>2024</td>
+              <td>102</td>
+              <td>1,450</td>
+            </tr>
+            <tr>
+              <th scope="row">Habitat Restoration Week</th>
+              <td>2024</td>
+              <td>60</td>
+              <td>300</td>
+              <td>Planting native trees and removing invasive species</td>
+            </tr>
+            <tr>
+              <th scope="row">River Education in Schools</th>
+              <td>2024</td>
+              <td>25</td>
+              <td>—</td>
+              <td>Workshops in 8 local schools</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Totals (where applicable)</th>
+              <td>—</td>
+              <td>272</td>
+              <td>2,950</td>
+              <td>Growing impact across cleanup and education</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="highlight-heading" class="grid-two">
+      <div>
+        <h2 id="highlight-heading">Project highlight: Habitat Restoration Week</h2>
+        <p>
+          During Habitat Restoration Week, volunteers worked with local biologists to plant native trees,
+          remove invasive plants, and stabilize eroding riverbanks.
+        </p>
+        <ul class="complex-list">
+          <li>Key outcomes
+            <ul>
+              <li>120 native trees planted</li>
+              <li>400 meters of riverbank stabilized</li>
+              <li>Invasive species removed:
+                <ul>
+                  <li>Japanese knotweed</li>
+                  <li>Himalayan balsam</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Partners
+            <ul>
+              <li>Greenway City Council</li>
+              <li>Local high school environmental club</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <figure>
+        <img src="images/tree-planting.jpg" alt="Volunteers planting young trees along the riverbank">
+        <figcaption>Volunteers planting native trees during Habitat Restoration Week.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> RiverCare Community Volunteers. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Upcoming RiverCare volunteer events and schedule.">
+  <title>Event Schedule | RiverCare Community Volunteers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="logo-area">
+      <img src="images/logo.png" alt="RiverCare Community Volunteers logo" class="logo">
+      <div>
+        <h1>RiverCare Community Volunteers</h1>
+        <p class="tagline">Protecting our river, one cleanup at a time.</p>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Our Mission</a></li>
+        <li><a href="projects.html">Projects & Impact</a></li>
+        <li><a class="active" href="schedule.html">Event Schedule</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="contact.html">Join & Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="schedule-heading">
+      <h2 id="schedule-heading">Upcoming events</h2>
+      <p>
+        All events are family-friendly and open to new volunteers. Please register through the
+        <a href="contact.html">Join & Contact</a> page so we can prepare enough supplies.
+      </p>
+
+      <div class="table-wrapper" role="region" aria-label="Upcoming events table" tabindex="0">
+        <table class="data-table">
+          <caption>RiverCare Upcoming Events</caption>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Event</th>
+              <th scope="col">Location</th>
+              <th scope="col">Difficulty</th>
+              <th scope="col">What to bring</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>March 15</td>
+              <td>Spring Kickoff Cleanup</td>
+              <td>Greenway Park (North Entrance)</td>
+              <td>Moderate</td>
+              <td>Sturdy shoes, reusable water bottle</td>
+            </tr>
+            <tr>
+              <td>April 6</td>
+              <td>Family River Walk and Litter Pickup</td>
+              <td>Riverside Trailhead</td>
+              <td>Easy</td>
+              <td>Comfortable walking shoes, snacks</td>
+            </tr>
+            <tr>
+              <td>May 10</td>
+              <td>Invasive Plant Removal Day</td>
+              <td>Willow Bend</td>
+              <td>Challenging</td>
+              <td>Work gloves (if you have them), long sleeves</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="prep-heading" class="grid-two">
+      <div>
+        <h2 id="prep-heading">How to prepare for events</h2>
+        <ol class="simple-list">
+          <li>Register in advance using our online form.</li>
+          <li>Check the weather and dress appropriately.</li>
+          <li>Bring a reusable water bottle and snacks.</li>
+          <li>Arrive 10–15 minutes early for orientation.</li>
+        </ol>
+      </div>
+
+      <figure>
+        <img src="images/event-briefing.jpg" alt="Group of volunteers listening to an event briefing near the river">
+        <figcaption>Volunteers receiving a safety briefing before a cleanup event.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> RiverCare Community Volunteers. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Photo gallery of RiverCare volunteers and events.">
+  <title>Photo Gallery | RiverCare Community Volunteers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="logo-area">
+      <img src="images/logo.png" alt="RiverCare Community Volunteers logo" class="logo">
+      <div>
+        <h1>RiverCare Community Volunteers</h1>
+        <p class="tagline">Protecting our river, one cleanup at a time.</p>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Our Mission</a></li>
+        <li><a href="projects.html">Projects and Impact</a></li>
+        <li><a href="schedule.html">Event Schedule</a></li>
+        <li><a class="active" href="gallery.html">Photo Gallery</a></li>
+        <li><a href="contact.html">Join and Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Moments from the river</h2>
+      <p>
+        These photos capture some of our favorite moments from recent cleanups, workshops, and community events.
+      </p>
+
+      <div class="photo-grid">
+        <figure>
+          <img src="images/gallery-1.jpg" alt="Volunteers carrying bags of collected trash">
+          <figcaption>Hauling away bags of trash after a successful cleanup.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/gallery-2.jpg" alt="Children learning about river wildlife at an outdoor workshop">
+          <figcaption>Kids learning about river wildlife during an educational workshop.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/gallery-3.jpg" alt="Volunteer measuring water quality with a test kit">
+          <figcaption>Testing water quality to monitor river health.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/gallery-4.jpg" alt="Group photo of volunteers smiling by the river">
+          <figcaption>Group photo after a long but rewarding day.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/gallery-5.jpg" alt="Volunteer planting a small tree sapling">
+          <figcaption>Planting native trees to stabilize the riverbank.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/gallery-6.jpg" alt="Sunset over the river with clean banks">
+          <figcaption>A cleaner river at sunset—our shared achievement.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> RiverCare Community Volunteers. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join RiverCare Community Volunteers or contact us with questions.">
+  <title>Join and Contact | RiverCare Community Volunteers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="logo-area">
+      <img src="images/logo.png" alt="RiverCare Community Volunteers logo" class="logo">
+      <div>
+        <h1>RiverCare Community Volunteers</h1>
+        <p class="tagline">Protecting our river, one cleanup at a time.</p>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Our Mission</a></li>
+        <li><a href="projects.html">Projects and Impact</a></li>
+        <li><a href="schedule.html">Event Schedule</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a class="active" href="contact.html">Join and Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="join-heading" class="grid-two">
+      <div>
+        <h2 id="join-heading">Join our volunteer community</h2>
+        <p>
+          Fill out the form to join our mailing list, sign up for events, or ask questions.
+          We’ll get back to you within a few days.
+        </p>
+
+        <!-- Accessible form with at least 3 elements -->
+        <form action="#" method="post" class="contact-form">
+          <fieldset>
+            <legend>Volunteer information</legend>
+
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="interest">Primary interest</label>
+              <select id="interest" name="interest">
+                <option value="cleanups">River cleanups</option>
+                <option value="education">Education and outreach</option>
+                <option value="advocacy">Advocacy and policy</option>
+                <option value="other">Other / not sure yet</option>
+              </select>
+            </div>
+
+            <fieldset class="form-group">
+              <legend>How often would you like to volunteer?</legend>
+              <div class="inline-options">
+                <div>
+                  <input type="radio" id="monthly" name="frequency" value="monthly">
+                  <label for="monthly">Once a month</label>
+                </div>
+                <div>
+                  <input type="radio" id="quarterly" name="frequency" value="quarterly">
+                  <label for="quarterly">A few times a year</label>
+                </div>
+                <div>
+                  <input type="radio" id="one-time" name="frequency" value="one-time">
+                  <label for="one-time">One-time events</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-group">
+              <label for="message">Questions or comments</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+              <input type="checkbox" id="newsletter" name="newsletter" checked>
+              <label for="newsletter">Subscribe to our monthly newsletter</label>
+            </div>
+
+            <button type="submit" class="btn-primary">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+
+      <figure>
+        <img src="images/contact-team.jpg" alt="Two volunteers at an information booth by the river">
+        <figcaption>Our outreach team at a local community fair.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> RiverCare Community Volunteers. All rights reserved.&nbsp;</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
